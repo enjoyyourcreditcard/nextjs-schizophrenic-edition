@@ -10,6 +10,8 @@ export default async function Users() {
 
     const user = session.user
 
+    console.log(user)
+
     return(
         <div className="flex flex-col justify-center items-center gap-4 h-screen" >
             <table>
