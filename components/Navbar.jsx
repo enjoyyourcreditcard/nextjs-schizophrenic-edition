@@ -2,6 +2,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import LogoutButton from "./LogoutButton";
+import Link from "next/link";
 
 export default async function Navbar() {
     const session   = await getServerSession(authOptions)
@@ -11,7 +12,7 @@ export default async function Navbar() {
         <nav className="p-4 border-b w-full sticky top-0">
             <div className="flex justify-between items-center">
                 <LogoutButton />
-                <div className="flex justify-center items-center gap-4">
+                <Link href="/dashboard/profile" className="flex justify-center items-center gap-4">
                     <div className="flex flex-col items-end">
                         <span>{user.name}</span>
                         <span>{user.email}</span>
@@ -33,7 +34,7 @@ export default async function Navbar() {
                             alt="default image"
                         />
                     }
-                </div>
+                </Link>
             </div>
         </nav>
     )    
